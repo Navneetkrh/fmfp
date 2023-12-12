@@ -18,11 +18,7 @@ class _OutlinePageState extends State<OutlinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: Image.asset('assets/fmfp.png'),
-        title: Text('FMFP - 2023'),
-        backgroundColor: Colors.indigo,
-      ),
+      
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -56,15 +52,15 @@ class _OutlinePageState extends State<OutlinePage> {
     switch (index) {
       case 0:
         // Home Page
-        return Placeholder(fallbackHeight: 200.0, fallbackWidth: 200.0);
+        return SessionsPage();
       case 1:
         // Updates Page
-        return Placeholder(fallbackHeight: 200.0, fallbackWidth: 200.0);
+        return UpdatesPage();
       case 2:
         // About Page
         return AboutPage();
       default:
-        return Text('Error: Invalid navigation index');
+        return const Text('Error: Invalid navigation index');
     }
   }
 }
