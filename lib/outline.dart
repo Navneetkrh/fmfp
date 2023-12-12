@@ -22,7 +22,7 @@ class _OutlinePageState extends State<OutlinePage> {
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        backgroundColor: Colors.indigo,
+        backgroundColor:Color(0xFF1E2046),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(0.5),
         onTap: (index) {
