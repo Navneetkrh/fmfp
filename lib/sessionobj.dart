@@ -13,6 +13,7 @@ class SessionObject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+                  
                   margin: const EdgeInsets.only(bottom: 20),
                   height: 150,
                   child: Column(
@@ -61,6 +62,7 @@ class SessionObject extends StatelessWidget {
                         ),
                       ]),
                   decoration: BoxDecoration(
+                     
                       color: Colors.indigo, // set the color to white
 
                       borderRadius: BorderRadius.circular(20)),
