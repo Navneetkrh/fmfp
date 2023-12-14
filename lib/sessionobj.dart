@@ -6,7 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class SessionObject extends StatelessWidget {
-  const SessionObject({super.key,required this.room,required this.name});
+  const SessionObject({super.key,required this.room,required this.name,});
   final String room;
   final String name;
 

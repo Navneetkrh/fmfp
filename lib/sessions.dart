@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
+import 'd1s1.dart';
 
 class SessionsPage extends StatefulWidget {
   const SessionsPage({super.key});
@@ -19,7 +20,7 @@ class _SessionsPageState extends State<SessionsPage> {
       debugShowCheckedModeBanner: false,
       title: "FMFP - 2023",
       home: DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
             appBar: AppBar(
               leading: Image.asset('assets/fmfp.png'),
@@ -33,7 +34,6 @@ class _SessionsPageState extends State<SessionsPage> {
                   Tab(text: 'Session 1'),
                   Tab(text: 'Session 2'),
                   Tab(text: 'Session 3'),
-                  Tab(text: 'Session 4'),
                 ],
               ),
             ),
@@ -41,49 +41,9 @@ class _SessionsPageState extends State<SessionsPage> {
             
             body: TabBarView(
               children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
-                        child: Text(
-                          "      Venue:\nLecture Hall Complex",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                          child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white, // set the color to white
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(
-                                  15), // round the top left corner
-                              topRight: Radius.circular(
-                                  15), // round the top right corner
-                            ) // round the corners
-                            ),
-                        child: ListView(
-                          padding: const EdgeInsets.all(20),
-                          children: <Widget>[
-                            SessionObject(room: "yo yo", name: "navneet is important"),
-                            SessionObject(room: "lhc 307", name: "navneet is important"),
-                            SessionObject(room: "hehe", name: "navneet is not alive"),
-                            SessionObject(room: "yo yo", name: "navneet is important")
-                           
-                          ],
-                        ),
-                      ))
-                    ],
-                  ),
-                ),
-                Icon(Icons.music_video),
-                Icon(Icons.music_video),
-                Icon(Icons.music_video),
+                D1s1(),
+              //  D1s2(),
+              //  D1s3(),
               ],
             )),
       ),
