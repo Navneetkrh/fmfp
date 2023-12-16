@@ -3,10 +3,11 @@ import 'about.dart';
 import 'home.dart';
 import 'updates.dart';
 import 'sessions.dart';
-
+import 'sessions2.dart';
+import 'sessions3.dart';
 class OutlinePage extends StatefulWidget {
-  const OutlinePage({Key? key}) : super(key: key);
-  
+  const OutlinePage({Key? key,required this.dayno }) : super(key: key);
+  final int dayno;
   @override
   State<OutlinePage> createState() => _OutlinePageState();
 }
@@ -52,7 +53,15 @@ class _OutlinePageState extends State<OutlinePage> {
     switch (index) {
       case 0:
         // Home Page
+        if(widget.dayno == 1){
         return SessionsPage();
+        }
+        else if(widget.dayno == 2){
+        return SessionsPage2();
+        }
+        else{
+          return SessionsPage3();
+        }
       case 1:
         // Updates Page
         return UpdatesPage();

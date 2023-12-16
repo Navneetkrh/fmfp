@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
-import 'd1s1.dart';
-import 'd1s2.dart';
-import 'd1s3.dart';
+import 'd3s1.dart';
+import 'd3s2.dart';
+import 'd3s3.dart';
 
-class SessionsPage extends StatefulWidget {
-  const SessionsPage({super.key});
+class SessionsPage3 extends StatefulWidget {
+  const SessionsPage3({super.key});
 
   @override
-  State<SessionsPage> createState() => _SessionsPageState();
+  State<SessionsPage3> createState() => _SessionsPage3State();
 }
 
-class _SessionsPageState extends State<SessionsPage> {
+class _SessionsPage3State extends State<SessionsPage3> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,9 +43,9 @@ class _SessionsPageState extends State<SessionsPage> {
             
             body: TabBarView(
               children: [
-                D1s1(),
-                D1s2(),
-                D1s3(),
+                D3s1(),
+                D3s2(),
+                D3s3(),
               ],
             )),
       ),

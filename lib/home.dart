@@ -53,7 +53,7 @@ class _HomescreenState extends State<Homescreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => const OutlinePage()));},
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => const OutlinePage(dayno :1)));},
                         child: Text('Day 1'),
                         style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent, 
@@ -63,7 +63,7 @@ class _HomescreenState extends State<Homescreen> {
                       ),
                       ElevatedButton(
                         
-                        onPressed: () {},
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => const OutlinePage(dayno:2)));},
                         child: Text('Day 2'),
                         style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent, // change this color as needed
@@ -72,7 +72,7 @@ class _HomescreenState extends State<Homescreen> {
                         
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => const OutlinePage(dayno:3)));},
                         child: Text('Day 3'),
                         style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent, 
