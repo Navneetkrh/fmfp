@@ -3,21 +3,21 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
 
-class D2s6 extends StatelessWidget {
-  D2s6({Key? key}) : super(key: key);
+class D3s4 extends StatelessWidget {
+  D3s4({Key? key}) : super(key: key);
 
   final Map<String, List<Map<String, dynamic>>> papers = {
-    "Keynote Talk 7": [
+    "Keynote Talk 9": [
       {
-        'title': 'Renewed Global Interest in Nuclear Power in The Light of The Push for De-Carbonisation',
-        'authors': 'Speaker: Shri Joe Mohan (BARC)\nChair: Prof. Rajesh Patel (Director, Nirma University Gujarat)',
+        'title': 'The Fluid Dynamics of Dense Human Crowds: The Idea of Laminar-Turbulence Transition',
+        'authors': 'Speaker: Prof. Mahesh Panchagnula (IIT Madras)\nChair: Prof. Amit Agrawal (IIT Bombay)',
         'room': 'LHC 110',
       },
     ],
-    "Keynote Talk 8": [
+    "Keynote Talk 10": [
       {
-        'title': 'Biomimetic CFD Study on various types of Fish-like Shape, Kinematics, and Swimming of a 2D and 3D Hydrofoil',
-        'authors': 'Speaker: Prof. Atul Sharma (IIT Bombay)\nChair: Prof. Prodyut Ranjan Chakraborty (IIT Jodhpur)',
+        'title': 'Coffee-Ring Effect: Fundamental Insights and Applications in Forensics',
+        'authors': 'Speaker: Prof. Rajneesh Bhardwaj (IIT Bombay)\nChair: Prof. Shyama Prasad Das (IIT Madras)',
         'room': 'LHC 308',
       },
     ],
@@ -31,7 +31,7 @@ class D2s6 extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Text(
-              "Keynote 4 \n3:55 to 4:30",
+              "Keynote 5 \n12:55 to 1:30",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,

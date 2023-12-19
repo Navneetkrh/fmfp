@@ -3,22 +3,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
 
-class D2s6 extends StatelessWidget {
-  D2s6({Key? key}) : super(key: key);
+class D3s0 extends StatelessWidget {
+  D3s0({Key? key}) : super(key: key);
 
   final Map<String, List<Map<String, dynamic>>> papers = {
-    "Keynote Talk 7": [
+    "Prof. Aswatha Narayana Plenary Talk": [
       {
-        'title': 'Renewed Global Interest in Nuclear Power in The Light of The Push for De-Carbonisation',
-        'authors': 'Speaker: Shri Joe Mohan (BARC)\nChair: Prof. Rajesh Patel (Director, Nirma University Gujarat)',
+        'title': 'Opportunities and Challenges in Adopting Electro-fuels for Sustainable Transport',
+        'authors': 'Speaker: Prof. Avinash Kumar Agarwal (IIT Kanpur)\nChair: Prof. Amaresh Dalal (IIT Guwahati)',
         'room': 'LHC 110',
-      },
-    ],
-    "Keynote Talk 8": [
-      {
-        'title': 'Biomimetic CFD Study on various types of Fish-like Shape, Kinematics, and Swimming of a 2D and 3D Hydrofoil',
-        'authors': 'Speaker: Prof. Atul Sharma (IIT Bombay)\nChair: Prof. Prodyut Ranjan Chakraborty (IIT Jodhpur)',
-        'room': 'LHC 308',
       },
     ],
   };
@@ -31,7 +24,7 @@ class D2s6 extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Text(
-              "Keynote 4 \n3:55 to 4:30",
+              "Plenary 3 \n9:00 to 9:50",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,

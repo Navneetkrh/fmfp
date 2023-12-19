@@ -53,6 +53,7 @@ class _SessionsPage2State extends State<SessionsPage2> {
                 child: Material(
                   color: Color(0xFF1E2046), // Set the color of the TabBar
                   child: TabBar(
+                    isScrollable: true,
                     labelColor: Colors.white,
                     indicatorColor: Colors.white,
                     tabs: [
