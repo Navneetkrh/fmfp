@@ -7,34 +7,29 @@ import 'sessionobj.dart';
 class D1s4 extends StatelessWidget {
   D1s4({Key? key}) : super(key: key);
 
-final Map<String, List<Map<String, String>>> papers = {
-  "": [
-    {
-      'title': 'Prof. Mangesh Chaudhari (VIT Pune)-',
-      'authors': 'Thermal Management in Electronics Devices and EV Batteries',
-    },
-    {
-      'title': "Chair: Prof. Ratnesh Kumar Shukla (IISC, Bangalore)"
-    }
-  ],
-};
-
-final Map<String, List<Map<String, String>>> papers_2 = {
-  "": [
-    {
-      'title': 'Prof. Amitabh Bhattacharya (IIT Delhi)-',
-      'authors': 'Energy Harvesting via Vortex Induced Vibrations with Bistable Springs',
-      
-    },
-    
-    {
-      'title': "Prof. Ashoke De (IIT Kanpur)                           ",
-    },
-  ],
-};
-
-
-  
+  final Map<String, List<Map<String, dynamic>>> papers = {
+    "Keynote Talk 1": [
+      {
+        'title': 'Water Unlocks',
+        'authors': 'Speaker: Prof. Pradip Kumar Tiwari (IIT Jodhpur)-\nChair: Prof. Ratnesh Kumar Shukla (IISC, Bangalore)',
+        'room': 'LHC 110',
+      },
+    ],
+    "Keynote Talk 2": [
+      {
+        'title': 'Energy Harvesting via Vortex Induced Vibrations with Bistable Springs',
+        'authors': 'Speaker: Prof. Amitabh Bhattacharya (IIT Delhi)-\nChair: Prof. Subhasish Dey (IIT Jodhpur)',
+        'room': 'LHC 308',
+      },
+    ],
+    "Keynote Talk 3": [
+      {
+        'title': 'Thermal Management in Electronics Devices and EV Batteries',
+        'authors': 'Speaker: Prof. Mangesh Chaudhari (VIT Pune)-\nChair: Prof. Ashoke De (IIT Kanpur)',
+        'room': 'LHC 106',
+      },
+    ],
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +39,7 @@ final Map<String, List<Map<String, String>>> papers_2 = {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Text(
-              "             Venue:\nLecture Hall Complex \n         12:55 to 1:30",
+              "12:55 to 1:30 Keynote\nSession 1",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
@@ -55,19 +50,17 @@ final Map<String, List<Map<String, String>>> papers_2 = {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white, // set the color to white
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15), // round the top left corner
-                  topRight: Radius.circular(15), // round the top right corner
-                ), // round the corners
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                ),
               ),
               child: ListView(
                 padding: const EdgeInsets.all(20),
                 children: <Widget>[
                   for (var session in papers.entries)
-                    SessionObject(room: "LHC 110", name: session.key, papers: session.value),
-                  for (var session in papers_2.entries)
-                    SessionObject(room: "LHC 308", name: session.key, papers: session.value),
+                    SessionObject(room: session.value[0]['room'] ?? 'No Room Assigned', name: session.key, papers: session.value),
                 ],
               ),
             ),

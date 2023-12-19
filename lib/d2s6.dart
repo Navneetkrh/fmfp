@@ -1,25 +1,22 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
 
-class D1s5 extends StatelessWidget {
-  D1s5({Key? key}) : super(key: key);
+class D2s6 extends StatelessWidget {
+  D2s6({Key? key}) : super(key: key);
 
-  final Map<String, List<Map<String, dynamic>>> papers = {
-    "Sponsor Talk 1": [
+  final Map<String, List<Map<String, String>>> papers = {
+    "Keynote 4 \n3:55 to 4:30": [
       {
-        'title': 'Power of Optimization for Sustainable Product Development',
-        'authors': 'Speaker: Shri Ramesha BS (Head - Academic, Altair)\nChair: Prof. B Ravindra (IIT Jodhpur)',
+        'title': 'Renewed Global Interest in Nuclear Power in The Light of The Push for De-Carbonisation',
+        'authors': 'Keynote Talk 7: Shri Joe Mohan (BARC)\nChair: Prof. Rajesh Patel (Director, Nirma University Gujarat)',
         'room': 'LHC 110',
       },
-    ],
-    "Sponsor Talk 2": [
       {
-        'title': 'Doppler Optical Probe: An Innovative Instrument for Void Fraction, Bubble Size and Velocity Measurement',
-        'authors': 'Speaker: Shri Stephane Gluck (CTO and Founder– A2 Photonic Sensors)\nChair: Prof. B Ravindra (IIT Jodhpur)',
-        'room': 'LHC 110',
+        'title': 'Biomimetic CFD Study on various types of Fish-like Shape, Kinematics, and Swimming of a 2D and 3D Hydrofoil',
+        'authors': 'Keynote Talk 8: Prof. Atul Sharma (IIT Bombay)\nChair: Prof. Prodyut Ranjan Chakraborty (IIT Jodhpur)',
+        'room': 'LHC 308',
       },
     ],
   };
@@ -32,7 +29,7 @@ class D1s5 extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Text(
-              "Sponsor Talks",
+              "Venue:\nLecture Hall Complex",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,

@@ -1,25 +1,27 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'sessionobj.dart';
 
-class D1s5 extends StatelessWidget {
-  D1s5({Key? key}) : super(key: key);
+class D2s5 extends StatelessWidget {
+  D2s5({Key? key}) : super(key: key);
 
-  final Map<String, List<Map<String, dynamic>>> papers = {
-    "Sponsor Talk 1": [
+  final Map<String, List<Map<String, String>>> papers = {
+    "Keynote Session 3 \n12:55 to 1:30": [
       {
-        'title': 'Power of Optimization for Sustainable Product Development',
-        'authors': 'Speaker: Shri Ramesha BS (Head - Academic, Altair)\nChair: Prof. B Ravindra (IIT Jodhpur)',
+        'title': 'Physics-based Digital Twin and towards Exascale Algorithms',
+        'authors': 'Keynote Talk 4: Prof. Santosh Ansumali (JNCASR)\nChair: Prof. Dhiman Chatterjee (IIT Madras)',
         'room': 'LHC 110',
       },
-    ],
-    "Sponsor Talk 2": [
       {
-        'title': 'Doppler Optical Probe: An Innovative Instrument for Void Fraction, Bubble Size and Velocity Measurement',
-        'authors': 'Speaker: Shri Stephane Gluck (CTO and Founder– A2 Photonic Sensors)\nChair: Prof. B Ravindra (IIT Jodhpur)',
-        'room': 'LHC 110',
+        'title': 'Scramjet Engine Development for Hypersonic Vehicles',
+        'authors': 'Keynote Talk 5: Dr. BVN Charyalu DRLD Hyderabad, DRDO\nChair: Prof. Raghavan V (IIT Madras)',
+        'room': 'LHC 308',
+      },
+      {
+        'title': 'Insights into Generalized Scaling of Friction in Wall Turbulence',
+        'authors': 'Keynote Talk 6: Dr. Shivsai Ajit Dixit (IITM, Scientist F)\nChair: Prof. Jaywant H. Arakeri (IIT Jodhpur)',
+        'room': 'LHC 106',
       },
     ],
   };
@@ -32,7 +34,7 @@ class D1s5 extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Text(
-              "Sponsor Talks",
+              "Venue:\nLecture Hall Complex",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
