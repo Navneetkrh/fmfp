@@ -3,10 +3,11 @@ import 'updateobj.dart'; // replace with your actual package
 import 'package:flutter/material.dart';
 
 Future<List<dynamic>> fetchUpdates() async {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final QuerySnapshot<Map<String, dynamic>> result =
-      await _firestore.collection('activity').orderBy('time', descending: true).get();
+      await firestore.collection('activity').get();
   final List<DocumentSnapshot<Map<String, dynamic>>> documents = result.docs;
+ 
   return documents;
 
 }
@@ -39,7 +40,9 @@ class _UpdatesPageState extends State<UpdatesPage> {
         child: AppBar(
           leading: Image.asset('assets/fmfp.png'),
           title: Text('Important updates'),
+          elevation: 0,
         ),
+        
       ),
       body: FutureBuilder<List<UpdateObject>>(
         future: _updates,
@@ -49,17 +52,30 @@ class _UpdatesPageState extends State<UpdatesPage> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 final UpdateObject update = snapshot.data![index];
-                return ListTile(
-                  title: Text(update.subject),
-                  subtitle: Text(update.content),
-                  trailing: Text(update.time.toString()),
+                return UpdateObject(
+                  time: update.time,
+                  subject: update.subject,
+                  content: update.content,
                 );
               },
             );
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return const CircularProgressIndicator();
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                ),
+                Text(
+                  'Loading updates...',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          );
         },
       ),
       backgroundColor: Colors.indigo,

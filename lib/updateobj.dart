@@ -16,30 +16,37 @@ class UpdateObject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
-      height: 150,
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFF1E2046), // dark blue color
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 1,
             blurRadius: 7,
             offset: Offset(0, 3),
           ),
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // align text to the left
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(subject, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Text(content, style: TextStyle(fontSize: 16)),
+          Text(
+            subject,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          Text(
+            content,
+            style: TextStyle(fontSize: 16, color: Colors.white70),
+          ),
           Align(
             alignment: Alignment.bottomRight,
             child: Text(
               '${time.day}/${time.month}/${time.year} ${time.hour}:${time.minute}',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              style: TextStyle(fontSize: 14, color: Colors.grey[300]),
             ),
           ),
         ],
