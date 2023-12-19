@@ -17,28 +17,51 @@ class _AdminPageState extends State<AdminPage> {
   Future<void> _addUpdate() async {
     if (_formKey.currentState!.validate()) {
       if (_passwordController.text == '3600') {
-        await _firestore.collection('activity').add({
-          'subject': _subjectController.text,
-          'content': _contentController.text,
-          'time_added': Timestamp.now(),
-        });
-        _subjectController.clear();
-        _contentController.clear();
-        _passwordController.clear();
         showDialog(
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('Update pushed successfully'),
-              content: Icon(Icons.check_circle, color: Colors.green, size: 48),
+              title: Text('Confirm Update'),
+              content:Text('Are you sure you want to push this update?') ,
               actions: <Widget>[
                 TextButton(
-                  child: Text('Go to Updates Page'),
-                  onPressed: () {
+                  child: Text('Confirm'),
+                  onPressed: () async {
+                    await _firestore.collection('activity').add({
+                      'subject': _subjectController.text,
+                      'content': _contentController.text,
+                      'time_added': Timestamp.now(),
+                    });
+                    _subjectController.clear();
+                    _contentController.clear();
+                    _passwordController.clear();
                     Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => UpdatesPage()),
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('Update pushed successfully'),
+                          content: Icon(Icons.check_circle, color: Colors.green, size: 48),
+                          actions: <Widget>[
+                            TextButton(
+                              child: Text('Go to Updates Page'),
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => UpdatesPage()),
+                                );
+                              },
+                            ),
+                            TextButton(
+                              child: Text('Ok'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
                     );
                   },
                 ),
@@ -59,7 +82,6 @@ class _AdminPageState extends State<AdminPage> {
       }
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
