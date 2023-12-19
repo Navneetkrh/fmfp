@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:fmfp/admin.dart';
 import 'outline.dart';
+import 'password.dart';
+
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -17,7 +20,7 @@ class _HomescreenState extends State<Homescreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Image.asset('assets/fmfp.png'),
-        title: Text('FMFP - 2023'),
+        title: Text('FMFP - 2023 Admin App'),
         backgroundColor: Colors.indigo,
       ),
       body: SingleChildScrollView( // Added SingleChildScrollView
@@ -28,7 +31,7 @@ class _HomescreenState extends State<Homescreen> {
             Container(
               padding: const EdgeInsets.all(30.0),
               child: const Text(
-                'Welcome to FMFP 2023, Hosted by IIT Jodhpur',
+                'This is the Admin App for the event only for the organisers to push updates and view the schedule for the event.',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25, // adjust the size as needed
@@ -78,6 +81,45 @@ class _HomescreenState extends State<Homescreen> {
                           backgroundColor: Colors.redAccent, 
                           elevation: 10// change this color as needed
                             )
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text('Enter Password'),
+                                  content: TextField(
+                                    obscureText: true,
+                                    onChanged: (value) {
+                                      // Check if the entered password is correct
+                                      if (value == '3600') {
+                                        // If the password is correct, navigate to the AdminPage
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => AdminPage()),
+                                        );
+                                      }
+                                    },
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text('Cancel'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          child: Text('Admin'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                            elevation: 10,
+                          ),
                         ),
                       ],
                     ),
