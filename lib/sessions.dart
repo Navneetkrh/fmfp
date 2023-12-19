@@ -7,6 +7,10 @@ import 'sessionobj.dart';
 import 'd1s1.dart';
 import 'd1s2.dart';
 import 'd1s3.dart';
+import 'd1s0.dart';
+import 'd1s4.dart';
+import 'd1s5.dart';
+
 
 class SessionsPage extends StatefulWidget {
   const SessionsPage({super.key});
@@ -22,7 +26,7 @@ class _SessionsPageState extends State<SessionsPage> {
       debugShowCheckedModeBanner: false,
       title: "FMFP - 2023",
       home: DefaultTabController(
-        length: 3,
+        length: 6,
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.indigo,
@@ -49,12 +53,16 @@ class _SessionsPageState extends State<SessionsPage> {
                 child: Material(
                   color: Color(0xFF1E2046), // Set the color of the TabBar
                   child: TabBar(
+                    isScrollable: true,
                     labelColor: Colors.white,
                     indicatorColor: Colors.white,
                     tabs: [
+                      Tab(text: 'Plenary Talk'),
                       Tab(text: 'Session 1'),
                       Tab(text: 'Session 2'),
                       Tab(text: 'Session 3'),
+                      Tab(text: 'Keynote session 1'),
+                      Tab(text: 'Keynote session 2'),
                     ],
                   ),
                 ),
@@ -63,9 +71,12 @@ class _SessionsPageState extends State<SessionsPage> {
             backgroundColor: Color(0xFF1E2046),
             body: TabBarView(
               children: [
+                D1s0(),
                 D1s1(),
                 D1s2(),
                 D1s3(),
+                D1s4(),
+                D1s5(),
               ],
             )),
       ),
