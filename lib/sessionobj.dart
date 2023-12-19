@@ -46,34 +46,45 @@ class SessionObject extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 showDialog(
-                  context: context, 
+                  context: context,
                   builder: (context) => AlertDialog(
-                    backgroundColor: Colors.indigo[100], // Set the background color to a light shade of violet
-                    titleTextStyle: TextStyle(color: Colors.indigo[800], fontSize: 20, fontWeight: FontWeight.bold), // Set the title text style
-                    contentTextStyle: TextStyle(color: Colors.indigo[800], fontSize: 16), // Set the content text style
-                    title: Center(
-                      child: SingleChildScrollView( // Add a SingleChildScrollView to enable scrolling when the content is too long
-                        child: Column(
-                          children: papers.map((paper) => RichText(
-                            text: TextSpan(
-                              style: TextStyle(
-                                color: Theme.of(context).textTheme.bodyText1?.color,
-                                fontSize: 15,
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: '${paper['title']}\n',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                TextSpan(text: paper['authors'] ?? ''),
-                                TextSpan(text: '\n\n'), // Add some space between each paper
-                              ],
-                            ),
-                          )).toList(),
+                    backgroundColor: Colors.white, // Set the background color to white
+                    titleTextStyle: TextStyle(color: Colors.blue, fontSize: 20, fontWeight: FontWeight.bold), // Set the title text style to blue
+                    contentTextStyle: TextStyle(color: Colors.black, fontSize: 16), // Set the content text style to black
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Lectures'),
+                        IconButton(
+                          icon: Icon(Icons.close),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
                         ),
+                      ],
+                    ),
+                    content: SingleChildScrollView( // Add a SingleChildScrollView to enable scrolling when the content is too long
+                      child: Column(
+                        children: papers.map((paper) => RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '${paper['title']}\n',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              TextSpan(text: paper['authors'] ?? ''),
+                              TextSpan(text: '\n\n'), // Add some space between each paper
+                            ],
+                          ),
+                        )).toList(),
                       ),
                     ),
                   ),
+                
                 );
               },
               child: Center(
@@ -82,12 +93,19 @@ class SessionObject extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
+                    
                   ),
                 ),
               ),
               style: ElevatedButton.styleFrom(
+                elevation: 10,
                 backgroundColor: Color.fromARGB(255, 30, 32, 70),
-                minimumSize: Size(100.0, 40.0)
+                minimumSize: Size(100.0, 40.0),
+                shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20), 
+    
+      // This makes the button rounded
+    ),
               ),
             ),
           ),

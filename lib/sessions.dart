@@ -25,22 +25,42 @@ class _SessionsPageState extends State<SessionsPage> {
         length: 3,
         child: Scaffold(
             appBar: AppBar(
-              leading: Image.asset('assets/fmfp.png'),
-              title: Text('FMFP - 2023'),
               backgroundColor: Colors.indigo,
-              bottom: const TabBar(
-                labelColor: Colors.white,
-                indicatorColor: Colors.white,
-                isScrollable: true,
-                tabs: [
-                  Tab(text: 'Session 1'),
-                  Tab(text: 'Session 2'),
-                  Tab(text: 'Session 3'),
-                ],
+              elevation: 0,
+              leading: Image.asset('assets/fmfp.png'),
+              title: Text('Day 1 Sessions'),
+              actions: <Widget>[
+                TextButton.icon(
+                  onPressed: () {
+                    Navigator.pop(context); // Navigate to the previous page
+                  },
+                  icon: Icon(Icons.calendar_today, size: 16, color: Colors.white), // Add a small icon
+                  label: Text(
+                    'Select Day',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(kToolbarHeight),
+                child: Material(
+                  color: Color(0xFF1E2046), // Set the color of the TabBar
+                  child: TabBar(
+                    labelColor: Colors.white,
+                    indicatorColor: Colors.white,
+                    tabs: [
+                      Tab(text: 'Session 1'),
+                      Tab(text: 'Session 2'),
+                      Tab(text: 'Session 3'),
+                    ],
+                  ),
+                ),
               ),
             ),
             backgroundColor: Color(0xFF1E2046),
-            
             body: TabBarView(
               children: [
                 D1s1(),
