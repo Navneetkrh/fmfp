@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 Future<List<dynamic>> fetchUpdates() async {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final QuerySnapshot<Map<String, dynamic>> result =
-      await firestore.collection('activity').get();
+      await firestore.collection('activity').orderBy('time_added', descending: true).get();
   final List<DocumentSnapshot<Map<String, dynamic>>> documents = result.docs;
  
   return documents;
