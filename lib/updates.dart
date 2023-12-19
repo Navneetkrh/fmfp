@@ -29,7 +29,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
           content: e['content'], // assuming 'content' is a String
         )).toList());
 
-    print("Harry Potter");
+    // print("Harry Potter");
     _updates?.then((value) => print(value));
   }
   @override
