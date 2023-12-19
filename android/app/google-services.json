@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "86947622453",
+    "project_id": "fmfp-fbb61",
+    "storage_bucket": "fmfp-fbb61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86947622453:android:18673f9b20d7cc35988b7c",
+        "android_client_info": {
+          "package_name": "com.example.fmfp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNjCspnO2bgohNfjeP4JOLw1N9BiBbmi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,36 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'updateobj.dart'; // replace with your actual package
 import 'package:flutter/material.dart';
 
-class UpdatesPage extends StatelessWidget {
+Future<List<dynamic>> fetchUpdates() async {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final QuerySnapshot<Map<String, dynamic>> result =
+      await _firestore.collection('activity').orderBy('time', descending: true).get();
+  final List<DocumentSnapshot<Map<String, dynamic>>> documents = result.docs;
+  return documents;
+
+}
+
+class UpdatesPage extends StatefulWidget {
+  @override
+  _UpdatesPageState createState() => _UpdatesPageState();
+}
+
+class _UpdatesPageState extends State<UpdatesPage> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  Future<List<UpdateObject>>? _updates;
+  @override
+  void initState() {
+    super.initState();
+    _updates = fetchUpdates().then((value) => value.map((e) => UpdateObject(
+          time: (e['time_added'] as Timestamp).toDate(), // assuming 'time' is a Timestamp
+          subject: e['subject'], // assuming 'subject' is a String
+          content: e['content'], // assuming 'content' is a String
+        )).toList());
+
+    print("Harry Potter");
+    _updates?.then((value) => print(value));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,42 +39,30 @@ class UpdatesPage extends StatelessWidget {
         child: AppBar(
           leading: Image.asset('assets/fmfp.png'),
           title: Text('Important updates'),
-          backgroundColor: Colors.indigo,
-          elevation: 0,
         ),
       ),
-      body: Container(
-        color: Color.fromRGBO(30, 32, 70, 1), // Change the color here
-        child: Padding(
-          padding: const EdgeInsets.only(top: 90.0), // Adjust this value to change the starting position of the white container
-          child: Container(
-            child: Center(
-        child: Text(
-          'No Updates Yet',
-          style: TextStyle(
-            color:  Color.fromRGBO(30, 32, 70, 1),
-            fontSize: 24,
-          ),
-        ),
-      ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-              ),
-            ),
-          ),
-        ),
+      body: FutureBuilder<List<UpdateObject>>(
+        future: _updates,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                final UpdateObject update = snapshot.data![index];
+                return ListTile(
+                  title: Text(update.subject),
+                  subtitle: Text(update.content),
+                  trailing: Text(update.time.toString()),
+                );
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        },
       ),
       backgroundColor: Colors.indigo,
-      
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: UpdatesPage(),
-  ));
 }
